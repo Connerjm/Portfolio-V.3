@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-v.3",
+  "version": "1.0.0",
+  "description": "Full-stack application hosting Conner Martins information and projects.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Connerjm/Portfolio-V.3.git"
+  },
+  "keywords": [
+    "Express",
+    "Handlebars",
+    "Node"
+  ],
+  "author": "Conner Martin",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/Connerjm/Portfolio-V.3/issues"
+  },
+  "homepage": "https://github.com/Connerjm/Portfolio-V.3#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.0"
+  }
+}

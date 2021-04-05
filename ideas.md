@@ -7,13 +7,13 @@
 - Portfolio.
 - Projects hosted.
 - Resume download.
-- Contact information.
+- Contact information. (GitHub/ LinkedIn)
 - Commonly used references.
 
 ## Personal Half
 
 - Reviews.
-- Social links.
+- Social links. (Reddit/MAL)
 
 ## CS Aspects
 

@@ -1,0 +1,18 @@
+/* Set variables. */
+:root {
+    --color-1: #f64f59
+}
+
+#links {
+    display: none;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    border-top: solid 1px var(--color-1);
+    text-align: center;
+}

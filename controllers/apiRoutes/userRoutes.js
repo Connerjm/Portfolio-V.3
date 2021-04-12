@@ -17,7 +17,7 @@ router.post("/new", async (req, res) =>
             req.session.userId = userData.id;
             req.session.loggedIn = true;
 
-            res.status(200).json(userData);
+            res.status(200).json({ message: "Success." });
         });
     }
     catch (err)
@@ -31,19 +31,19 @@ router.post("/login", async (req, res) =>
 {
     try
     {
-        //Get the info assosiated with the given username.
-        const userData = await User.findOne({ where: { username: req.body.username } });
+        //Get the info assosiated with the given email.
+        const userData = await User.findOne({ where: { email: req.body.email } });
 
-        //if theres no entry matching that username.
+        //if theres no entry matching that email.
         if (!userData)
-            res.status(400).json({ message: "Incorrect username or password." });
+            res.status(400).json({ message: "Incorrect email or password." });
 
         //Make sure the passwords match.
         const validPassword = await userData.checkPassword(req.body.password);
         
         //if they don't, don't state that the password is the problem.
         if (!validPassword)
-            res.status(400).json({ message: "Incorrect username or password." });
+            res.status(400).json({ message: "Incorrect email or password." });
 
         //Set the session data.
         req.session.save(() =>
@@ -51,7 +51,7 @@ router.post("/login", async (req, res) =>
             req.session.userId = userData.id;
             req.session.loggedIn = true;
 
-            res.status(200).json(userData);
+            res.status(200).json({ message: "Success." });
         });
     }
     catch (err)
@@ -68,6 +68,7 @@ router.patch("/edit-username", auth, async (req, res) =>
         const userData = await User.findByPk(req.session.userId);
         userData.username = req.body;
         await userData.save();
+        res.status(200).json({ message: "Success." });
     }
     catch (err)
     {
@@ -83,6 +84,7 @@ router.patch("/edit-password", auth, async (req, res) =>
         const userData = await User.findByPk(req.session.userId);
         userData.password = req.body;
         await userData.save();
+        res.status(200).json({ message: "Success." });
     }
     catch (err)
     {
@@ -124,5 +126,5 @@ router.delete("/delete", auth, async (req, res) =>
     }
 });
 
-//Exports
+//Exports.
 module.exports = router;

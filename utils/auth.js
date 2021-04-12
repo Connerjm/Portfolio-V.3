@@ -4,4 +4,5 @@ function auth (req, res, next)
     !req.session.loggedIn ? res.redirect("/login") : next();
 }
 
+//Exports.
 module.exports = auth;

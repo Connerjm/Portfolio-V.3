@@ -24,23 +24,21 @@ router.get("/", async (req, res) =>
             }
         }`;
 
+    //axios call to the github api.
     axios({
         url: "https://api.github.com/graphql",
         method: "post",
         headers: {
-            "Content-Type": "application/json","Authorization": `bearer ${process.env.GITHUB_TOKEN}`
+            "Content-Type": "application/json","Authorization":
+            `bearer ${process.env.GITHUB_TOKEN}`
         },
         data: { query: myquery },
         transformResponse: [(data) =>
-        {
-            const response = JSON.parse(data).data.user.repositories.nodes;
-            return response;
+        {   //Return only the relevent array of repos.
+            return JSON.parse(data).data.user.repositories.nodes;
         }]
     })
-        .then((result) =>
-        {
-            res.status(200).json(result.data);
-        })
+        .then((result) => { res.status(200).json(result.data); })
         .catch(err => { res.status(400).json(err); });
 });
 

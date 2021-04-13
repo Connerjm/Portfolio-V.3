@@ -9,7 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Style links. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 
     <!-- Script links. -->
@@ -35,18 +38,40 @@
 <body>
     <!-- Header. -->
     <header>
-        <a href="/" id="header-icon">Conner Martin</a>
-        <button id="nav-button"><i class="fas fa-bars"></i></button>
-        <div id="links">
-            <a href="/">Home</a>
-            <a href="/portfolio">Portfolio</a>
-            <a href="/contact">Contact</a>
-            <a href="/login">Login</a>
-        </div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" id="logo-button" href="/">
+                    Conner Martin
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="links">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="links" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item is-active" href="/">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="/portfolio">
+                        Portfolio
+                    </a>
+                    <a class="navbar-item" href="/contact">
+                        Contact
+                    </a>
+                    <a class="navbar-item" href="/login">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Footer. -->
-    <footer>
+    <footer class="footer is-flex is-justify-content-space-between">
         <p>&copy;2021</p>
         <a href="https://github.com/Connerjm"><i class="fab fa-github"></i> github</a>
     </footer>

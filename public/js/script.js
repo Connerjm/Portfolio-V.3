@@ -7,4 +7,9 @@ $(document).ready(() =>
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
   });
+
+  $("#repos-button").click(() =>
+  {
+    window.open("https://github.com/Connerjm?tab=repositories", "_blank");
+  });
 });

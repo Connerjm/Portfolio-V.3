@@ -1,5 +1,6 @@
 //Imports.
 const router = require("express").Router();
+const { getProjects } = require("./projectsGrabber");
 
 //Home.
 router.get("/", (req, res) =>
@@ -8,9 +9,22 @@ router.get("/", (req, res) =>
 });
 
 //Portfolio.
-router.get("/portfolio", (req, res) =>
+router.get("/portfolio", async (req, res) =>
 {
-    res.render("portfolio");
+    const projects = await getProjects();
+
+    projects.forEach(e =>
+    {
+        if (e.deployments.nodes.length > 0)
+        {
+            e.deployment = `https://connerjm.github.io/${e.url.split("/")[4]}/`;
+        }
+        delete e.deployments;
+    });
+
+    console.log(projects);
+
+    res.render("portfolio", { projects });
 });
 
 //Contact.

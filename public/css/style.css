@@ -10,9 +10,15 @@
     --main-font: 'Roboto', sans-serif;
 }
 
+html,
 body {
-    /* Cheat cause the background won't stretch for some reason. */
-    padding-bottom: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: 60px;
     background-image: linear-gradient(to bottom right, #12c2e9, #c471ed, #f64f59);
 }
 

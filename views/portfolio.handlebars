@@ -1,0 +1,8 @@
+<main class="container box">
+    <div class="columns is-multiline is-vcentered">
+        {{#each projects as |project|}}
+        {{> project-details}}
+        {{/each}}
+    </div>
+    <button class="button is-fullwidth" id="repos-button">Want to see more? View all on GitHub!</button>
+</main>

@@ -36,13 +36,13 @@ router.get("/contact", (req, res) =>
 //Login.
 router.get("/login", (req, res) =>
 {
-    //TODO
+    res.render("login");
 });
 
 //Sign up.
 router.get("/signup", (req, res) =>
 {
-    //TODO
+    res.render("signup");
 });
 
 //Everything else / 404 page someday.

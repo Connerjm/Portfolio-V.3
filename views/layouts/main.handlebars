@@ -58,7 +58,7 @@
 
             <div id="links" class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item is-active" href="/">
+                    <a class="navbar-item" href="/">
                         Home
                     </a>
                     <a class="navbar-item" href="/portfolio">
@@ -67,20 +67,27 @@
                     <a class="navbar-item" href="/contact">
                         Contact
                     </a>
+                    {{#if logged_in}}
+                    <a id="logout-button" class="navbar-item">
+                        Logout
+                    </a>
+                    {{else}}
                     <a class="navbar-item" href="/login">
                         Login
                     </a>
+                    {{/if}}
                 </div>
             </div>
         </nav>
     </header>
 
     {{!-- Main content. --}}
+    {{{body}}}
 
     {{!-- Footer. --}}
     <footer class="footer is-flex is-justify-content-space-between">
         <p>&copy;2021</p>
-        <a href="https://github.com/Connerjm"><i class="fab fa-github"></i> github</a>
+        <a href="https://github.com/Connerjm" target="_blank"><i class="fab fa-github"></i> github</a>
     </footer>
 </body>
 

@@ -10,8 +10,15 @@
     --main-font: 'Roboto', sans-serif;
 }
 
+body {
+    /* Cheat cause the background won't stretch for some reason. */
+    padding-bottom: 200px;
+    background-image: linear-gradient(to bottom right, #12c2e9, #c471ed, #f64f59);
+}
+
 header {
     border-bottom: solid 1px var(--dark);
+    margin-bottom: 25px;
 }
 
 #logo-button:hover {
@@ -38,6 +45,12 @@ header {
         opacity: 1;
         max-height: 396px;
     }
+}
+
+#self-picture {
+    float: left;
+    width: 128px;
+    margin-right: 20px;
 }
 
 .footer {

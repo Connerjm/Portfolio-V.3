@@ -3,6 +3,65 @@ const router = require("express").Router();
 const { getProjects } = require("./projectsGrabber");
 const auth = require("../utils/auth");
 
+//An array of fake user info.
+const fakes = [
+    {
+        username: "LukeSkywalker",
+        email: "Luke@force.com",
+        password: "PieceOfJunk"
+    },
+    {
+        username: "Michael_Jackson",
+        email: "mjackson@gmail.com",
+        password: "theKINGofpop8"
+    },
+    {
+        username: "Naruto-Uzumaki",
+        email: "naruto@leaf.com",
+        password: "B3LI3V3-IT"
+    },
+    {
+        username: "yOURgRANDMA",
+        email: "elivsfan43@aol.com",
+        password: "password123"
+    },
+    {
+        username: "thewintersoldier",
+        email: "bucky1917@avengers.com",
+        password: "samsucks"
+    },
+    {
+        username: "BigFootWasHere",
+        email: "iamreal@yahoo.com",
+        password: "fromthePNW"
+    },
+    {
+        username: "jonathanDoeathan",
+        email: "fakeityfake@fake.com",
+        password: "0pancakes4orwaffles99"
+    },
+    {
+        username: "XxDragonXSniperX69xX",
+        email: "zachschoolemail@outlook.com",
+        password: "tiktokStar07"
+    },
+    {
+        username: "LilithTheDemoness",
+        email: "lilith@hell.com",
+        password: "allhailME"
+    },
+    {
+        username: "Hodor",
+        email: "hodor@hodor.hodor",
+        password: "hodor"
+    },
+    {
+        username: "Sierra117",
+        email: "masterchief@halo.com",
+        password: "BOOMheadshot"
+    }
+];
+
 //Home.
 router.get("/", (req, res) =>
 {
@@ -49,7 +108,7 @@ router.get("/signup", (req, res) =>
     if (req.session.loggedIn)
         res.redirect("/");
     else
-        res.render("signup");
+        res.render("signup", { fake: fakes[Math.floor(Math.random() * fakes.length)] });
 });
 
 //Everything else / 404 page someday.

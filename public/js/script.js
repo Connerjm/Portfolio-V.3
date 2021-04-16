@@ -68,6 +68,13 @@ $(document).ready(() =>
     document.location.replace("/");
   });
 
+  //Send email button.
+  $("#contact-send-button").click((e) =>
+  {
+    e.preventDefault();
+    //TODO
+  });
+
   //Open my github repos page.
   $("#repos-button").click(() =>
   {

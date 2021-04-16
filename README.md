@@ -12,8 +12,7 @@ Another iteration on my portfolio, this time I'll be implementing a backend util
 
 ## Deployement
 
-<!-- TODO -->
-- [Live on Heroku](placeholder)
+- [Live on Heroku](https://conners-portfolio-v3.herokuapp.com/)
 - [GitHub Repo](https://github.com/Connerjm/Portfolio-V.3)
 
 ## License

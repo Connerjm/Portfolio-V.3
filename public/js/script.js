@@ -9,10 +9,43 @@ $(document).ready(() =>
   });
 
   //Signup button.
-  $("#signup-button")
+  $("#signup-button").click(() =>
+  {
+    const username = $("#signup-username-input").val().trim();
+    const email = $("#signup-email-input").val().trim();
+    const password = $("#signup-password-input").val().trim();
+
+    if (username && email && password)
+    {
+        $.ajax({
+            url: "/api/users/new",
+            type: "POST",
+            data: JSON.stringify({ username, email, password }),
+            headers: { "Content-Type": "application/json" },
+            success: () => { document.location.replace("/"); },
+            error: (req, text, err) => { alert(`Something went wrong! Status: ${text}; Error: ${err}`); }
+        });
+    }
+  });
 
   //Login button/
-  $("#login-button")
+  $("#login-button").click(() =>
+  {
+    const email = $("#login-email-input").val().trim();
+    const password = $("#login-password-input").val().trim();
+
+    if (email && password)
+    {
+        $.ajax({
+            url: "/api/users/login",
+            type: "POST",
+            data: JSON.stringify({ email, password }),
+            headers: { "Content-Type": "application/json" },
+            success: () => { document.location.replace("/"); },
+            error: (req, text, err) => { alert(`Something went wrong! Status: ${text}; Error: ${err}`); }
+        });
+    }
+  });
 
   //Logout button.
   $("#logout-button").click(() =>

@@ -1,11 +1,12 @@
 //Imports.
 const router = require("express").Router();
 const { getProjects } = require("./projectsGrabber");
+const auth = require("../utils/auth");
 
 //Home.
 router.get("/", (req, res) =>
 {
-    res.render("home");
+    res.render("home", { logged_in: req.session.loggedIn });
 });
 
 //Portfolio.
@@ -24,25 +25,31 @@ router.get("/portfolio", async (req, res) =>
 
     console.log(projects);
 
-    res.render("portfolio", { projects });
+    res.render("portfolio", { projects, logged_in: req.session.loggedIn });
 });
 
 //Contact.
-router.get("/contact", (req, res) =>
+router.get("/contact", auth, (req, res) =>
 {
-    res.render("contact");
+    res.render("contact", { logged_in: req.session.loggedIn });
 });
 
 //Login.
 router.get("/login", (req, res) =>
 {
-    res.render("login");
+    if (req.session.loggedIn)
+        res.redirect("/");
+    else
+        res.render("login");
 });
 
 //Sign up.
 router.get("/signup", (req, res) =>
 {
-    res.render("signup");
+    if (req.session.loggedIn)
+        res.redirect("/");
+    else
+        res.render("signup");
 });
 
 //Everything else / 404 page someday.

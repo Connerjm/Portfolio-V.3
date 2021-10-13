@@ -55,8 +55,9 @@ header {
 
 #self-picture {
     float: left;
-    width: 128px;
+    width: 20%;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .footer {
